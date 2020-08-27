@@ -11,8 +11,11 @@ import java.util.NoSuchElementException;
 public class ThreadUnsafeFixGaStack<E> implements GaStack<E> {
 
     private static final int EMPTY_INDEX = -1;
+
     private final Object[] elementArray;
+
     private final int max;
+
     private int current = EMPTY_INDEX;
 
     public ThreadUnsafeFixGaStack(int max) {
@@ -35,6 +38,7 @@ public class ThreadUnsafeFixGaStack<E> implements GaStack<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public E pop() {
         checkForPopOrPeek();
         return (E) elementArray[current--];
@@ -47,6 +51,7 @@ public class ThreadUnsafeFixGaStack<E> implements GaStack<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public E peek() {
         checkForPopOrPeek();
         return (E) elementArray[current];
