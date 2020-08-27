@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  */
 public class ThreadUnsafeFixGaStack<E> implements GaStack<E> {
 
-    private final static int EMPTY_INDEX = -1;
+    private static final int EMPTY_INDEX = -1;
     private final Object[] elementArray;
     private final int max;
     private int current = EMPTY_INDEX;
